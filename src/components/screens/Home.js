@@ -21,12 +21,24 @@ const Home = () =>{
     return(
         
         <View>
-            <Text>News Today!</Text>
+            <Text style={styles.title}>News Today - Digital Journal</Text>
             <>{articles.articles ? <NewsList articlesFound={articles}/> : null }</>
         </View>
     );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+
+    title:{
+        marginBottom: 15,
+        padding: 5,
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#fff",
+        textAlign: "center",
+        backgroundColor: "#F2400B",
+        position: "sticky",
+    }
+});
 
 export default Home;
