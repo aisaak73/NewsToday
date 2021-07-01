@@ -21,7 +21,7 @@ const Home = () =>{
     return(
         
         <View>
-            <Text style={styles.title}>News Today - Digital Journal</Text>
+            <Text style={styles.title}>News Today <br/> Digital Journal</Text>
             <>{articles.articles ? <NewsList articlesFound={articles}/> : null }</>
         </View>
     );

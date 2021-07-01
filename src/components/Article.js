@@ -3,17 +3,28 @@ import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 
 const {width, height} = Dimensions.get("screen");
 
+const imageNotFound ="https://i0.wp.com/elfutbolito.mx/wp-content/uploads/2019/04/image-not-found.png?ssl=1";
+
 const Article = ({articleInfo}) =>{
     return(
         <View style={styles.container}>
             <Text style={styles.title}>{articleInfo.title}</Text>
-            {articleInfo.author ?
-            <Text>Author: {articleInfo.author}</Text> : <Text>Author: Unknown</Text>}
+
+            {articleInfo.author ? 
+            <Text>Author: {articleInfo.author}</Text> 
+            : <Text>Author: Unknown</Text>}
+
             <Text>Topic: {articleInfo.topic} </Text>
             
+            {articleInfo.media ?
+
             <View style={styles.cardImage}>
-            <Image style={styles.image} source={{uri: articleInfo.media}}/>
-            </View>
+                <Image style={styles.image} source={{uri: articleInfo.media}}/>
+            </View> 
+            : <View style={styles.cardImage}> 
+                <Image style={styles.image} source={{uri: imageNotFound}}/>
+            </View>}
+
             <Text>Published Date: {articleInfo.published_date}</Text>
         </View>
     );
@@ -50,7 +61,8 @@ const styles = StyleSheet.create({
 
     image:{
         width: width*0.84,
-        height: height*0.35,
+        height: height*0.4,
+        resizeMode: "stretch",
     },
 });
 
