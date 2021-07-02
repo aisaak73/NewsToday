@@ -16,15 +16,18 @@ const fetchNews = async () =>{
     }
 }
 
-/*const searchArticle = async (search)=>{
-    const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${search}&lang=en`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "5c1488f81emsh962d45ecca43faap15ef9djsn04811aa0029e",
-            "x-rapidapi-host": "free-news.p.rapidapi.com"
-        }
-    });
-}*/
+const searchArticle = async (search)=>{
+   try {
+        const response = await fetch(apiUrl, {headers: headers});
+        const data = await response.json();
+        return data;
+
+    }    
+    catch (error) {
+     console.log("FML X2");
+          
+     }
+}
 
 
 export default fetchNews;

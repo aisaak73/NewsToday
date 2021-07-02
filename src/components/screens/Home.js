@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import fetchNews from '../../api';
-import Article from '../Article';
 import NewsList from '../NewsList';
 
-const Home = () =>{
+
+const Home = ({navigation}) =>{
 
     const [articles, setArticles] = useState({});
 
@@ -22,7 +22,7 @@ const Home = () =>{
         
         <View>
             <Text style={styles.title}>News Today <br/> Digital Journal</Text>
-            <>{articles.articles ? <NewsList articlesFound={articles}/> : null }</>
+            <>{articles.articles ? <NewsList articlesFound={articles} navigation={navigation}/> : null }</>
         </View>
     );
 }
