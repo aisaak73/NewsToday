@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Article from './Article';
 
 const NewsList = ({articlesFound, navigation})=>{
     return(
-        <View>
+        <ScrollView>
             {articlesFound.articles.map((articleInfos)=>{
                 return(
                     <TouchableOpacity key={articleInfos._id} onPress={() =>{
@@ -14,7 +14,7 @@ const NewsList = ({articlesFound, navigation})=>{
                 ) 
             })}
 
-        </View>
+        </ScrollView>
         
     )
 }

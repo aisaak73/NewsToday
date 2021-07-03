@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import fetchNews from '../../api';
 import NewsList from '../NewsList';
 
@@ -21,8 +22,7 @@ const Home = ({navigation}) =>{
     return(
         
         <View>
-            <Text style={styles.title}>News Today <br/> Digital Journal</Text>
-            <>{articles.articles ? <NewsList articlesFound={articles} navigation={navigation}/> : null }</>
+            <>{articles.articles ? <NewsList articlesFound={articles} navigation={navigation}/> : <ActivityIndicator animating={true}/> }</>
         </View>
     );
 }
@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
         color: "#fff",
         textAlign: "center",
         backgroundColor: "#F2400B",
-        position: "sticky",
     }
 });
 

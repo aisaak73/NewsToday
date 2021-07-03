@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import { ActivityIndicator, Card } from 'react-native-paper';
 
 const {width, height} = Dimensions.get("screen");
 
@@ -20,7 +21,8 @@ const Article = ({articleInfo}) =>{
             <View style={styles.cardImage}>
                 <Image style={styles.image} source={{uri: articleInfo.media}}/>
             </View> 
-            : <View style={styles.cardImage}> 
+            : 
+            <View style={styles.cardImage}> 
                 <Image style={styles.image} source={{uri: imageNotFound}}/>
             </View>}
 
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
     title:{
         fontSize: 20,
         fontFamily: "Lucida Sans Serif",
-        fontWeight: "light",
+        fontWeight: "500",
         color: "#fff",
         padding: 5,
         margiin: 10,
