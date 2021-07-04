@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { Button, Title } from 'react-native-paper';
 
 const {width, height} = Dimensions.get("screen");
 const imageNotFound ="https://i0.wp.com/elfutbolito.mx/wp-content/uploads/2019/04/image-not-found.png?ssl=1";
@@ -8,7 +9,7 @@ const ReadArticle = ({route}) =>{
     const {articleInfos} = route.params;
     return(
         <View style={styles.container}>
-            <Text style={styles.title}>{articleInfos.title}</Text>
+            <Title style={styles.title}>{articleInfos.title}</Title>
             <Text>{articleInfos.author}</Text>
             <Text>{articleInfos.topic}</Text>
             {articleInfos.media ?
@@ -19,8 +20,8 @@ const ReadArticle = ({route}) =>{
                 <Image style={styles.image} source={{uri: imageNotFound}}/>
             </View>}
             <Text>{articleInfos.published_date}</Text>
-            <Text>{articleInfos.summary}</Text>
-            <button>Coontinue reading...</button>
+            <Text>{articleInfos.summary}...</Text>
+            <Button mode="contained">Continue reading...</Button>
         </View>
     )
 }

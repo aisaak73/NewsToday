@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         color: "#fff",
         padding: 5,
-        margiin: 10,
+        margin: 10,
         backgroundColor: "#373737",
 
     },
