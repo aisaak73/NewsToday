@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
-import { ActivityIndicator } from 'react-native-paper';
+import { StyleSheet, SafeAreaView, Platform, View } from 'react-native';
+import { ActivityIndicator, Title } from 'react-native-paper';
+import Constants  from 'expo-constants';
 import fetchNews from '../../api';
 import NewsList from '../NewsList';
 import SearchArticle from '../SearchArticle';
-
+import LanguageSelector from '../LanguageSelector';
 
 const Home = ({navigation}) =>{
 
@@ -25,10 +26,12 @@ const Home = ({navigation}) =>{
         <SafeAreaView style={styles.safe}>
             <>
                 <SearchArticle navigation={navigation}/>
+                <LanguageSelector navigation={navigation}/>
                 {articles.articles ? 
                   <NewsList articlesFound={articles} navigation={navigation}/>
-                : <ActivityIndicator animating={true}/> 
+                : <ActivityIndicator animating={true}/>
                 }
+                
             </>
         </SafeAreaView>
     );
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
 
     safe:{
         flex: 1,
+        marginTop: Platform.OS == "ios" ? 0 : Constants.statusBarHeight,
     },
     title:{
         marginBottom: 15,

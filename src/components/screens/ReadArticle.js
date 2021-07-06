@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
-import { Button, Title } from 'react-native-paper';
+import { StyleSheet, Text, ScrollView, View, Image, Dimensions, Linking, Pressable, TouchableOpacity } from 'react-native';
+import { Title} from 'react-native-paper';
 
 const {width, height} = Dimensions.get("screen");
 const imageNotFound ="https://i0.wp.com/elfutbolito.mx/wp-content/uploads/2019/04/image-not-found.png?ssl=1";
@@ -8,7 +8,7 @@ const imageNotFound ="https://i0.wp.com/elfutbolito.mx/wp-content/uploads/2019/0
 const ReadArticle = ({route}) =>{
     const {articleInfos} = route.params;
     return(
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Title style={styles.title}>{articleInfos.title}</Title>
             <Text>{articleInfos.author}</Text>
             <Text>{articleInfos.topic}</Text>
@@ -20,9 +20,15 @@ const ReadArticle = ({route}) =>{
                 <Image style={styles.image} source={{uri: imageNotFound}}/>
             </View>}
             <Text>{articleInfos.published_date}</Text>
-            <Text>{articleInfos.summary}...</Text>
-            <Button mode="contained">Continue reading...</Button>
-        </View>
+            <Text style={styles.content}>{articleInfos.summary}...</Text>
+
+            <Pressable style={styles.btn} mode="contained">
+                <TouchableOpacity onPress={ ()=> Linking.openURL(articleInfos.link) }>
+                        <Text style={styles.btn_text}>Continue Reading</Text>
+                </TouchableOpacity>
+            </Pressable>
+
+        </ScrollView>
     )
 }
 
@@ -48,11 +54,28 @@ const styles = StyleSheet.create({
         resizeMode: "stretch",
     },
     cardImage:{
-       // margin: 10,
-        //flex: 1,
         borderWidth: 2,
         borderColor: "#000",
     },
+    content:{
+        fontSize: 15,
+        fontWeight: "500",
+        textAlign: "justify",
+        margin: 10,
+    },
+    btn:{
+        backgroundColor: "#7C7979",
+        padding: 10,
+        margin: 10,
+        borderRadius: 20,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    btn_text:{
+        color: "#fff",
+        fontWeight: "700",
+        fontFamily: "Arial",
+    }
 });
 
 export default ReadArticle;
