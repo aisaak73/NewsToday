@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions} from 'react-native';
-import { ActivityIndicator, Card } from 'react-native-paper';
 
 const {width, height} = Dimensions.get("screen");
 

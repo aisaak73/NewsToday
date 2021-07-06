@@ -4,9 +4,9 @@ const {apiUrl, headers} = getEnvVars();
 
 //Realizar peticion a la API
 const fetchNews = async () =>{
-
+    
     try {
-        const response = await fetch(apiUrl, { headers: headers });
+        const response = await fetch(`${apiUrl}search?q=today&lang=en&page=2&page_size=20`, { headers: headers });
         const data = await response.json();
         console.log(data);
         return data;
@@ -16,9 +16,9 @@ const fetchNews = async () =>{
     }
 }
 
-const searchArticle = async (search)=>{
+export const searchArticle = async (search, language) =>{
    try {
-        const response = await fetch(apiUrl, {headers: headers});
+        const response = await fetch(`${apiUrl}search?q=${search}&lang=en&page_size=20`, {headers: headers});
         const data = await response.json();
         return data;
 
@@ -26,7 +26,7 @@ const searchArticle = async (search)=>{
     catch (error) {
      console.log("FML X2");
           
-     }
+    }
 }
 
 

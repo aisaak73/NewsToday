@@ -3,7 +3,7 @@ import Constant from "expo-constants";
 const ENV = {
     
 dev : {
-	apiUrl:"https://free-news.p.rapidapi.com/v1/search?q=vacances&lang=fr",
+	apiUrl:"https://free-news.p.rapidapi.com/v1/",
 
 	headers: {
 		"x-rapidapi-key": "5c1488f81emsh962d45ecca43faap15ef9djsn04811aa0029e",
